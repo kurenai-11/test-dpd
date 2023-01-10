@@ -33,6 +33,7 @@ const pageChooseInput = ref<string>("1");
 const q = ref("");
 const page = ref("1");
 const order = ref("asc");
+const sort = ref("");
 
 onMounted(async () => {
   if (!rawSearchFieldElement.value) return;
@@ -53,11 +54,13 @@ watch(
   async () => {
     page.value = (route.query["_page"] as string) || "1";
     q.value = route.query["q"] as string;
-    order.value = (route.query["order"] as string) || "asc";
+    order.value = (route.query["_order"] as string) || "asc";
+    sort.value = (route.query["_sort"] as string) || "";
     const response = await ApiClient.get("people", {
       params: {
         q: q.value,
-        order: order.value,
+        _order: order.value,
+        _sort: sort.value,
         _page: page.value,
       },
     });
@@ -81,13 +84,13 @@ watchDebounced(
   { debounce: 500, maxWait: 1000 }
 );
 const sortBy = async (category: string) => {
+  const currentQuery = route.query;
+  const newQuery = { ...currentQuery };
+  newQuery["_sort"] = category;
+  newQuery["_order"] = sortOrder.value ? "asc" : "desc";
   currentSort.value = category;
-  const response = await ApiClient.get("people", {
-    params: { _sort: category, _order: sortOrder.value ? "asc" : "desc" },
-  });
-  foundPeople.value = response.data;
-  parsePagination(response);
   sortOrder.value = !sortOrder.value;
+  router.push("/?" + new URLSearchParams(newQuery as any).toString());
 };
 const parsePagination = (response: AxiosResponse) => {
   // if there are no pages

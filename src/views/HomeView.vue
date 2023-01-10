@@ -53,6 +53,7 @@ watch(
   () => route.query,
   async () => {
     page.value = (route.query["_page"] as string) || "1";
+    pageChooseInput.value = page.value;
     q.value = route.query["q"] as string;
     order.value = (route.query["_order"] as string) || "asc";
     sort.value = (route.query["_sort"] as string) || "";

@@ -13,7 +13,7 @@ This is a test task for someone trying to get a job at some company. They are lo
 - _gives them the resume link_
 - "do you have a real job experience?"
 - nah, but I would like to get the task regardless if it's possible.
-- gives me the task
+- _gives me the task_
 - let me see...
 - _this_
 - some time passes

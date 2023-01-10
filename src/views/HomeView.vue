@@ -40,9 +40,15 @@ onMounted(async () => {
   // initial search
   const persistedPage = (route.query["_page"] as string) || "1";
   const persistedQ = (route.query["q"] as string) || "";
-  const persistedOrder = (route.query["order"] as string) || "asc";
+  const persistedOrder = (route.query["_order"] as string) || "asc";
+  const persistedSort = (route.query["_sort"] as string) || "";
   const response = await ApiClient.get("people", {
-    params: { _page: persistedPage, q: persistedQ, order: persistedOrder },
+    params: {
+      _page: persistedPage,
+      q: persistedQ,
+      _order: persistedOrder,
+      _sort: persistedSort,
+    },
   });
   foundPeople.value = response.data;
   parsePagination(response);

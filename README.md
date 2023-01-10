@@ -7,7 +7,7 @@ This is a test task for someone trying to get a job at some company. They are lo
 - me, a dev with no job experience yet, looking for a job.
 - see a company looking for a middle level dev
 - "we have a test task"
-- know that they will not even try to look at my skills if I don't have the ""expewience"".
+- know that they will not look at my skills anyway if I don't have the ""experience"".
 - contact them to get the task anyway
 - "can we look at your resume"
 - _gives them the resume link_

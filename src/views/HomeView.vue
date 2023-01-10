@@ -46,6 +46,7 @@ onMounted(async () => {
   });
   foundPeople.value = response.data;
   parsePagination(response);
+  search.value = persistedQ;
   // auto focus
   rawSearchFieldElement.value.rawInput.focus();
 });

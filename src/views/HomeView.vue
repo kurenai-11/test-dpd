@@ -1,4 +1,4 @@
-<script setup lang="tsx">
+<script setup lang="ts">
 import SearchField from "@/components/SearchField.vue";
 import TableElement from "@/components/TableElement.vue";
 import { computed, onMounted, ref, watch } from "vue";

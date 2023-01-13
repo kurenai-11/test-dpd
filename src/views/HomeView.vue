@@ -85,7 +85,7 @@ watchDebounced(
   () => {
     const current = route.query;
     const newQuery = { ...current };
-    newQuery["q"] = String(search.value);
+    newQuery["q"] = search.value;
     newQuery["_page"] = "1";
     router.push("/?" + new URLSearchParams(newQuery as any).toString());
   },

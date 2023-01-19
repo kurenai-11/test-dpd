@@ -1,5 +1,5 @@
-const fromEntries = (iterable: any) => {
-  return [...iterable].reduce((obj, [key, val]) => {
+const fromEntries = <T extends string[][]>(iterable: T) => {
+  return [...iterable].reduce((obj: Record<string, string>, [key, val]) => {
     obj[key] = val;
     return obj;
   }, {});
